@@ -1,5 +1,10 @@
 #!/bin/sh
 
-export PYTHONPATH=`dirname $0`:$PYTHONPATH
+cdir=`dirname $0`
 
-python3 -m TumOnc $*
+if [ -f $cdir/TumOnc ]; then
+    exec $cdir/TumOnc "$@"
+else
+    export PYTHONPATH=$cdir:$PYTHONPATH
+    exec python3 -m TumOnc "$@"
+fi
