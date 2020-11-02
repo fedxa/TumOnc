@@ -73,7 +73,7 @@ class binned_ns:
         self.genes = genes
         self.C = len(set(muts.patient.values))
         self.patient_factor = muts.groupby('patient').size()
-        self.patient_factor.sort(ascending=False)
+        self.patient_factor.sort_values(ascending=False)
         self.patient_factor = self.patient_factor/self.patient_factor.mean()
         self.patient_id = pd.Series(range(self.patient_factor.size),
                                     index=self.patient_factor.index)

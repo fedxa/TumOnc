@@ -59,7 +59,7 @@ def get_ctx_bins(bcc):
     """
     c3 = pd.DataFrame(bcc.groupby('ctx3').size(),columns=['ctx3count'])
     c3 = c3.reindex(ctx3_id.keys(),fill_value=0)
-    c3.sort(columns='ctx3count',ascending=False,inplace=True)
+    c3.sort_values(by='ctx3count',ascending=False,inplace=True)
     c3['c3id'] = range(len(c3))
     c3['c3id_15'] = c3['c3id']
     c3['c3id_5'] = c3['c3id']
@@ -68,7 +68,7 @@ def get_ctx_bins(bcc):
 
     c5 = pd.DataFrame(bcc.groupby('ctx5').size(),columns=['ctx5count'])
     c5 = c5.reindex(ctx5_id.keys(),fill_value=0)
-    c5.sort(columns='ctx5count',ascending=False,inplace=True)
+    c5.sort_values(by='ctx5count',ascending=False,inplace=True)
     c5['c5id'] = range(len(c5))
     c5['c5id_15'] = c5['c5id']
     c5['c5id_5'] = c5['c5id']
